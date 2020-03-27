@@ -16,28 +16,27 @@
 
 
 #include "MessageSlave.h"
-
-struct TempData
-{
-    int8_t microContTemp;
-    int8_t SDCardTemp;
-};
-
-struct StorageCapacity
-{
-    uint64_t bytesUsed;
-};
-
+#include <fstream>
 
 class IFJRSlave : public MessageSlave
 {
 private:
-    IFJRSlave(): MessageSlave(I2C_SDA, I2C_SCL, 0xE1){};
+    IFJRSlave(): MessageSlave(I2C_SDA, I2C_SCL, IFJR){};
     
+
+    /**
+     * @brief Something for filesystems to decide on, but
+     * outputing recieved binaries to a file for now
+     * 
+     */
+    fstream BinaryFile;
     
     void recieveBinary();
-    void processBinary(TransferProtocol);
+    void processBinary(TransferProtocol *);
+
+    void reProgram();
 
 public:
+    void checkCommand(int8_t command);
     
 };

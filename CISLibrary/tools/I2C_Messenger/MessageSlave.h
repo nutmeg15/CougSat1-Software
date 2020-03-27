@@ -26,9 +26,6 @@ class MessageSlave
 protected:
 /**
  * @brief the actual slave itself
- * 
- * @param sda SDA port
- * @param scl SCL port
  */
   I2CSlave *slaveBoard;
 
@@ -60,9 +57,9 @@ public:
 
   
   /**
- * @brief Recieve sent message
+ * @brief Recieve sent message command id
  * 
- * @return message id
+ * @return int8_t
  */
   int8_t WriteAddressed();
 };

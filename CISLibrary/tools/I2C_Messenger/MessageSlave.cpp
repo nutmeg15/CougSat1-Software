@@ -11,6 +11,12 @@ MessageSlave::~MessageSlave()
     delete this->slaveBoard;
 }
 
+/**
+ * @brief Looks for a command packet and is what should
+ * be running constantly. Reroutes to the right data type
+ * 
+ * @return int8_t
+ */
 int8_t MessageSlave::WriteAddressed()
 {
     bool found = false;

@@ -66,3 +66,33 @@ struct ConfigRecv {
   uint32_t data_size = 0;
   void *   data      = nullptr;
 };
+
+/**
+ * @brief IFJR subsystem temperature data struct
+ * (as defined in documentation)
+ */
+struct TempData
+{
+    int8_t microContTemp;
+    int8_t SDCardTemp;
+};
+
+/**
+ * @brief 
+ */ 
+struct StorageCapacity
+{
+    uint64_t bytesUsed;
+};
+
+/**
+ * @brief IFJR command code enumeration
+ */
+
+enum IFJRCommands
+{
+tempData = 0x00,
+storageData = 0x01,
+reprogram = 0x02,
+sendBinary = 0x03
+};
